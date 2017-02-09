@@ -4,6 +4,7 @@ package de.pottmeier.springweb;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -17,7 +18,9 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "de.pottmeier.springweb")
+// refer to contoller
+@ComponentScan( basePackages = {"de.pottmeier.controller"})
+
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
     @Override
@@ -44,26 +47,31 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         if (!registry.hasMappingForPattern("/bootstrap/**")) {
             registry.addResourceHandler("/bootstrap/**").addResourceLocations("classpath:/bootstrap/");
         }
-        if (!registry.hasMappingForPattern("/ang")) {
-            registry.addResourceHandler("/ang").addResourceLocations("classpath:/index.html");
-        }
+       
+  
+        
     }
 
-    @Bean
-    public InternalResourceViewResolver internalViewResolver() {
-        // The view names matches the name of the jsps, i guess
+    @Override
+    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+        configurer.enable();
+    }
+   
+
+   
+   @Bean ViewResolver viewResolver() {
+   // The view names matches the name of the jsps, i guess
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
         viewResolver.setPrefix("/WEB-INF/jsp/");
         viewResolver.setSuffix(".jsp");
         viewResolver.setOrder(1);
+   
         return viewResolver;
-    }
-
-    
+   }  
 
    
+
     
     
-    
-    
+   
 }

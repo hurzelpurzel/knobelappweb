@@ -1,4 +1,7 @@
-<%@page errorPage="error" %>
-<div>
-    das war nichts
-</div>
+<html>
+    
+   <div>
+    Leider trat ein Fehler auf
+   </div>
+</html>
+

@@ -9,6 +9,10 @@
             <goal>package</goal>
             <goal>spring-boot:run</goal>
         </goals>
+        <properties>
+                
+                <Env.SPRING_OUTPUT_ANSI_ENABLED>always</Env.SPRING_OUTPUT_ANSI_ENABLED>
+            </properties>
     </action>
     <action>
         <actionName>debug</actionName>
@@ -23,6 +27,7 @@
             <run.mainClass>de.pottmeier.BasicApplication</run.mainClass>
             <Env.SPRING_OUTPUT_ANSI_ENABLED>always</Env.SPRING_OUTPUT_ANSI_ENABLED>
             <jpda.listen>true</jpda.listen>
+            
         </properties>
     </action>
     <action>
