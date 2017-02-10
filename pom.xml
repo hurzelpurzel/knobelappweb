@@ -110,7 +110,7 @@
                         <id>exec-npm-install</id>
                         <phase>generate-sources</phase>
                         <configuration>
-                            <workingDirectory>${project.basedir}/src/main/resources</workingDirectory>
+                            <workingDirectory>${project.basedir}/src/main/webapp</workingDirectory>
                             <executable>npm</executable>
                             <arguments>
                                 <argument>install</argument>
