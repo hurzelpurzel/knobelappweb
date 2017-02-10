@@ -16,7 +16,7 @@ import javax.persistence.Id;
  *
  * @author ludger
  */
-@Entity(name = "termin")
+@Entity()
 public class TerminPO implements Serializable {
 
     private static final long serialVersionUID = 1L;
