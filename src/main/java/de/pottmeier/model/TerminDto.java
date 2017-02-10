@@ -11,43 +11,51 @@ import java.util.Date;
  *
  * @author ludger
  */
-public class Termin {
-  private long id;
+public class TerminDto implements Termin {
+  private Long id;
     private Date termin ;
     private String ort;
    private String  anlass;
 
     
 
-    public void setId(long id) {
+    @Override
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public long getId() {
+    @Override
+    public Long getId() {
         return id;
     }
     
 
+    @Override
     public Date getTermin() {
         return termin;
     }
 
+    @Override
     public void setTermin(Date termin) {
         this.termin = termin;
     }
 
+    @Override
     public String getOrt() {
         return ort;
     }
 
+    @Override
     public void setOrt(String ort) {
         this.ort = ort;
     }
 
+    @Override
     public String getAnlass() {
         return anlass;
     }
 
+    @Override
     public void setAnlass(String anlass) {
         this.anlass = anlass;
     }
@@ -70,7 +78,7 @@ public class Termin {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Termin other = (Termin) obj;
+        final TerminDto other = (TerminDto) obj;
         if (this.id != other.id) {
             return false;
         }
