@@ -6,13 +6,12 @@
 package de.pottmeier.controller;
 
 import de.pottmeier.beans.TerminRepository;
-import de.pottmeier.model.Termin;
 import de.pottmeier.model.TerminDto;
+import de.pottmeier.model.TerminPO;
 import java.util.Date;
 import java.util.Set;
-import java.util.concurrent.atomic.AtomicLong;
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,7 +29,7 @@ public class TerminProvider {
     private TerminRepository rep;
 
     @RequestMapping(path="termin",method= RequestMethod.POST)
-    public long  create(@RequestParam() TerminDto termin) {
+    public TerminDto  create(@RequestParam() TerminDto termin) {
         return rep.create(termin);
         
     }
@@ -47,12 +46,15 @@ public class TerminProvider {
         now.setTermin(new Date());
         now.setAnlass("test");
         now.setOrt("hier");
-        now.setId(rep.create(now));
-        return now;
+        return rep.create(now);
+       
     }
     
     @RequestMapping(path = "termine",method= RequestMethod.GET)
     public Set<TerminDto> getTermine(){
+        
         return rep.findAll();
     }
+    
+    
 }

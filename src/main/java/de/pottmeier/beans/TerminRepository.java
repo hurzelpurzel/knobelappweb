@@ -5,14 +5,16 @@
  */
 package de.pottmeier.beans;
 
-import de.pottmeier.model.Termin;
 import de.pottmeier.model.TerminDto;
 import de.pottmeier.model.TerminPO;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicLong;
+import java.util.stream.Collectors;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -23,46 +25,49 @@ import org.springframework.stereotype.Repository;
 public class TerminRepository {
     
     private static final String PERSISTENCE_UNIT_NAME = "knobelapp_pu";
-    private final AtomicLong sequence = new AtomicLong();
-     
-    
-    private Set<TerminDto> content = new HashSet<TerminDto>();
+   
     
     
     @PersistenceContext(unitName = PERSISTENCE_UNIT_NAME)
     EntityManager em;
     
-    public long create(TerminDto in) {
-        long id =sequence.incrementAndGet();
-        in.setId(id);
-        this.content.add(in);
-        return id;
+
+    public TerminDto create(TerminDto in) {
+        TerminPO po = new TerminPO();
+        BeanUtils.copyProperties(in, po);
+        em.persist(po);
         
+        return wrap(po);
     }
     
      public boolean change(TerminDto in){
-         if(this.content.contains(in)){
-             this.content.remove(in);
-             this.content.add(in);
+         TerminPO po = em.find(TerminPO.class, in.getId());
+         if(po != null){
+             
+            BeanUtils.copyProperties(in, po);
+             em.merge(po);
+             
              return true;
          }
          return false;
      }
     
     public Set<TerminDto> findAll(){
-        return new HashSet(this.content);
+        Query q=em.createQuery("select * from termin");
+        return  wrapAll((Set<TerminPO>)q.getResultList().stream().collect(Collectors.toSet()));
+        
     }
     
     public boolean delete(TerminDto in){
-         if(this.content.contains(in)){
-             this.content.remove(in);
-            
+        TerminPO po = em.find(TerminPO.class, in.getId());
+        if(po != null){
+             em.remove(po);
              return true;
-         }
+        }
          return false;
      }
     
-    public TerminDto wrap(TerminPO po){
+    private static TerminDto wrap(TerminPO po){
         TerminDto res =new TerminDto();
         res.setId(po.getId());
         res.setOrt(po.getOrt());
@@ -70,4 +75,12 @@ public class TerminRepository {
         res.setTermin(po.getTermin());
         return res;
     }
+    
+    private static Set<TerminDto> wrapAll(Set<TerminPO> in){
+        
+        return in.stream().map((TerminPO po) -> wrap(po)).collect(Collectors.toSet());
+    }
+    
+    
+    
 }

@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author ludger
  */
-public class TerminDto implements Termin {
+public class TerminDto {
   private Long id;
     private Date termin ;
     private String ort;
@@ -19,43 +19,37 @@ public class TerminDto implements Termin {
 
     
 
-    @Override
     public void setId(Long id) {
         this.id = id;
     }
 
-    @Override
     public Long getId() {
         return id;
     }
     
 
-    @Override
     public Date getTermin() {
         return termin;
     }
 
-    @Override
     public void setTermin(Date termin) {
         this.termin = termin;
     }
 
-    @Override
     public String getOrt() {
         return ort;
     }
 
-    @Override
     public void setOrt(String ort) {
         this.ort = ort;
     }
 
-    @Override
+   
     public String getAnlass() {
         return anlass;
     }
 
-    @Override
+    
     public void setAnlass(String anlass) {
         this.anlass = anlass;
     }

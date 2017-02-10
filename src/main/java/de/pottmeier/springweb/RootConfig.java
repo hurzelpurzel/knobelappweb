@@ -19,7 +19,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @ComponentScan(basePackages = {"de.pottmeier.beans"})
 public class RootConfig {
 	
-  // @Bean public SomeClass someClass() { 
+  //@Bean public SomeClass someClass() { 
   //    return someInstance;
   // }
    
