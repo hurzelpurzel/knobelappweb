@@ -38,6 +38,7 @@ public class TerminRepository {
         return wrap(po);
     }
 
+    
     @Transactional
     public boolean change(TerminDto in) {
         TerminPO po = em.find(TerminPO.class, in.getId());
@@ -57,10 +58,18 @@ public class TerminRepository {
         return wrapAll((Set<TerminPO>) q.getResultList().stream().collect(Collectors.toSet()));
 
     }
+    
+    public TerminDto get(Long id){
+        TerminPO po = em.find(TerminPO.class, id);
+        if (po != null) {
+            return wrap(po);
+        }
+        return null;
+    }
 
     @Transactional
-    public boolean delete(TerminDto in) {
-        TerminPO po = em.find(TerminPO.class, in.getId());
+    public boolean delete(Long id) {
+        TerminPO po = em.find(TerminPO.class, id);
         if (po != null) {
 
             em.remove(po);

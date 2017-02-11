@@ -134,12 +134,12 @@
                             <goal>exec</goal>
                         </goals>
                     </execution>
-                    <!--
+                 
                     <execution>
                         <id>exec-npm-run-tsc</id>
                         <phase>generate-sources</phase>
                         <configuration>
-                            <workingDirectory>${project.basedir}/src/main/resources</workingDirectory>
+                            <workingDirectory>${project.basedir}/src/main/webapp</workingDirectory>
                             <executable>npm</executable>
                             <arguments>
                                 <argument>run</argument>
@@ -151,7 +151,7 @@
                         </goals>
                     </execution>
                                        
-                    -->
+                
                 </executions>
             </plugin>
         

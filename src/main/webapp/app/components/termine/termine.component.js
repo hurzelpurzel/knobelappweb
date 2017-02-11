@@ -1,4 +1,4 @@
-System.register(["angular2/core", "../../model/termin.model"], function(exports_1, context_1) {
+System.register(["angular2/core", "../../model/termin.model", "../../services/termine.service", "./termin.component"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(["angular2/core", "../../model/termin.model"], function(exports_
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, termin_model_1;
+    var core_1, termin_model_1, termine_service_1, termin_component_1;
     var TermineComponent;
     return {
         setters:[
@@ -19,28 +19,61 @@ System.register(["angular2/core", "../../model/termin.model"], function(exports_
             },
             function (termin_model_1_1) {
                 termin_model_1 = termin_model_1_1;
+            },
+            function (termine_service_1_1) {
+                termine_service_1 = termine_service_1_1;
+            },
+            function (termin_component_1_1) {
+                termin_component_1 = termin_component_1_1;
             }],
         execute: function() {
-            TermineComponent = (function () {
-                function TermineComponent() {
+            let TermineComponent = class TermineComponent {
+                constructor(_service) {
+                    this._service = _service;
                     this.termine = new Array();
                     this.reset();
                 }
-                TermineComponent.prototype.onSubmit = function () {
+                ngOnInit() {
+                    this.load();
+                }
+                onSubmit() {
                     this.termine.push(this.edit);
                     this.reset();
-                };
-                TermineComponent.prototype.reset = function () {
+                }
+                reset() {
                     this.edit = new termin_model_1.Termin();
-                };
-                TermineComponent = __decorate([
-                    core_1.Component({
-                        selector: "termine-component",
-                        template: "Hier stehen bald termine\n    <div class=\"container\">\n       <div class=\"row\">\n          <div class=\"col-md-4\">Termin</div><div class=\"col-md-4\">Ort</div><div class=\"col-md-4\">Anlass</div>\n        <div>\n        <div class=\"row\" *ngFor=\"#item of termine\" >  \n            <div class=\"col-md-4\">{{item.termin}}</div><div class=\"col-md-4\">{{item.ort}}</div><div class=\"col-md-4\">{{item.anlass}}</div>\n        </div>\n        <div class=\"row\">  \n        <form class=\"form-container form-horizontal\" (submit)=\"onSubmit()\">\n            <div class=\"form-group\">\n            <label class=\"control-label col-sm-1\">Termin</label><div class=\"col-sm-11\"><input type=\"date\" [(ngModel)]=\"edit.termin\"/>\n            </div></div>\n             <div class=\"form-group\">\n            <label class=\"control-label col-sm-1\">Ort</label><div class=\"col-sm-11\"><input type=\"text\" [(ngModel)]=\"edit.ort\"/>\n            </div></div>\n             <div class=\"form-group\">\n            <label class=\"control-label col-sm-1\">Anlass</label><div class=\"col-sm-11\"><input type=\"text\" [(ngModel)]=\"edit.anlass\"/>\n            </div></div>\n            <div class=\"form-group\">\n            <button class=\"btn btn-primary\" type=\"submit\">Anlegen</button>\n            <button class=\"btn btn-danger\" type=\"button\" (click)=\"reset()\">Neu</button>\n            </div>\n        </form>\n        </div>\n    </div>\n    \n    \n    " }), 
-                    __metadata('design:paramtypes', [])
-                ], TermineComponent);
-                return TermineComponent;
-            }());
+                }
+                load() {
+                    this.termine = new Array();
+                    //this._service.getTermine().do(termine => { this.termine = termine});
+                }
+                onDelete(event) {
+                }
+            };
+            TermineComponent = __decorate([
+                core_1.Component({
+                    selector: "termine-component",
+                    directives: [termin_component_1.TerminComponent],
+                    template: `<h1>Termine</h1>
+    <div class="container">
+       <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-3">Termin</div>
+          <div class="col-md-3">Ort</div>
+          <div class="col-md-3">Anlass</div>
+        <div>
+        <div class="row" *ngFor="#item of termine" >  
+        <termin-component [item]="item" (delete)=onDelete($event) ><termin.component>
+        </div>
+        <div class="row">  
+        <termin-component [item]="edit" []editable="true" (reset)=reset() ><termin.component>
+        </div>
+    </div>
+    
+    
+    ` }), 
+                __metadata('design:paramtypes', [termine_service_1.TermineService])
+            ], TermineComponent);
             exports_1("TermineComponent", TermineComponent);
         }
     }

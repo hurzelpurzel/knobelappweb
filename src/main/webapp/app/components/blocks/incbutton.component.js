@@ -18,39 +18,39 @@ System.register(["angular2/core"], function(exports_1, context_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            IncButtonComponent = (function () {
-                function IncButtonComponent() {
+            let IncButtonComponent = class IncButtonComponent {
+                constructor() {
                     this.changed = new core_1.EventEmitter();
                     this.counter = 0;
                 }
-                IncButtonComponent.prototype.inc = function () {
+                inc() {
                     this.counter++;
                     this.changed.emit(this.counter);
-                };
-                IncButtonComponent.prototype.dec = function () {
+                }
+                dec() {
                     if (this.counter > 0) {
                         this.counter--;
                         this.changed.emit(this.counter);
                     }
-                };
-                __decorate([
-                    core_1.Input(), 
-                    __metadata('design:type', Number)
-                ], IncButtonComponent.prototype, "counter", void 0);
-                __decorate([
-                    core_1.Output(), 
-                    __metadata('design:type', (typeof (_a = typeof core_1.EventEmitter !== 'undefined' && core_1.EventEmitter) === 'function' && _a) || Object)
-                ], IncButtonComponent.prototype, "changed", void 0);
-                IncButtonComponent = __decorate([
-                    core_1.Component({
-                        selector: "incbutton-component",
-                        template: "<span><button class=\"btn\" (click)=\"inc()\">+</button>\n    <span class=\"counter\">{{counter}}</span>\n    <button class=\"btn\" (click)=\"dec()\">-</button> </span>",
-                        styles: ['.counter { font-weight: bold;  margin: 1em;}'] }), 
-                    __metadata('design:paramtypes', [])
-                ], IncButtonComponent);
-                return IncButtonComponent;
-                var _a;
-            }());
+                }
+            };
+            __decorate([
+                core_1.Input(), 
+                __metadata('design:type', Number)
+            ], IncButtonComponent.prototype, "counter", void 0);
+            __decorate([
+                core_1.Output(), 
+                __metadata('design:type', core_1.EventEmitter)
+            ], IncButtonComponent.prototype, "changed", void 0);
+            IncButtonComponent = __decorate([
+                core_1.Component({
+                    selector: "incbutton-component",
+                    template: `<span><button class="btn" (click)="inc()">+</button>
+    <span class="counter">{{counter}}</span>
+    <button class="btn" (click)="dec()">-</button> </span>`,
+                    styles: ['.counter { font-weight: bold;  margin: 1em;}'] }), 
+                __metadata('design:paramtypes', [])
+            ], IncButtonComponent);
             exports_1("IncButtonComponent", IncButtonComponent);
         }
     }

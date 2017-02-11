@@ -10,14 +10,14 @@ System.register([], function(exports_1, context_1) {
     return {
         setters:[],
         execute: function() {
-            Termin = (function () {
-                function Termin() {
+            class Termin {
+                constructor() {
+                    this.id = -1;
                     this.termin = new Date();
                     this.ort = "";
                     this.anlass = "";
                 }
-                return Termin;
-            }());
+            }
             exports_1("Termin", Termin);
         }
     }

@@ -33,28 +33,33 @@ System.register(["angular2/core", "./runde.component", "./rundekopf.component", 
                 knobler_model_1 = knobler_model_1_1;
             }],
         execute: function() {
-            SpielComponent = (function () {
-                function SpielComponent() {
+            let SpielComponent = class SpielComponent {
+                constructor() {
                     this.knobeler = knobler_model_1.KNOBLER;
                     this.termin = new termin_model_1.Termin();
                     this.spiel = new spiel_model_1.Spiel(this.termin);
                     this.init();
                 }
-                SpielComponent.prototype.init = function () {
+                init() {
                     this.spiel.init();
-                };
-                SpielComponent.prototype.neueRunde = function () {
+                }
+                neueRunde() {
                     this.spiel.neueRunde();
-                };
-                SpielComponent = __decorate([
-                    core_1.Component({
-                        selector: "spiel-component",
-                        directives: [runde_component_1.RundeComponent, rundekopf_component_1.RundeKopfComponent],
-                        template: "\n        <rundekopf-component [rundenzaehler]=\"spiel.zaehler\"></rundekopf-component>\n        <div *ngFor=\"#cur of knobeler\">\n            <runde-component [runde]=\"spiel.aktuelleRunde.get(cur)\" ></runde-component>\n        </div>\n         \n    " }), 
-                    __metadata('design:paramtypes', [])
-                ], SpielComponent);
-                return SpielComponent;
-            }());
+                }
+            };
+            SpielComponent = __decorate([
+                core_1.Component({
+                    selector: "spiel-component",
+                    directives: [runde_component_1.RundeComponent, rundekopf_component_1.RundeKopfComponent],
+                    template: `
+        <rundekopf-component [rundenzaehler]="spiel.zaehler"></rundekopf-component>
+        <div *ngFor="#cur of knobeler">
+            <runde-component [runde]="spiel.aktuelleRunde.get(cur)" ></runde-component>
+        </div>
+         
+    ` }), 
+                __metadata('design:paramtypes', [])
+            ], SpielComponent);
             exports_1("SpielComponent", SpielComponent);
         }
     }

@@ -21,20 +21,22 @@ System.register(["angular2/core", 'angular2/http'], function(exports_1, context_
                 http_1 = http_1_1;
             }],
         execute: function() {
-            TermineService = (function () {
-                function TermineService(_http) {
+            let TermineService = class TermineService {
+                constructor(_http) {
                     this._http = _http;
-                    this._baseUri = "";
+                    this._baseUri = "/knobelapp/rest";
                 }
-                TermineService.prototype.persist = function (termine) {
-                };
-                TermineService = __decorate([
-                    core_1.Injectable(), 
-                    __metadata('design:paramtypes', [(typeof (_a = typeof http_1.Http !== 'undefined' && http_1.Http) === 'function' && _a) || Object])
-                ], TermineService);
-                return TermineService;
-                var _a;
-            }());
+                persist(termine) {
+                }
+                getTermine() {
+                    return this._http.get(this._baseUri + '/termine').map(response => response.json());
+                }
+            };
+            TermineService = __decorate([
+                core_1.Injectable(), 
+                __metadata('design:paramtypes', [http_1.Http])
+            ], TermineService);
+            exports_1("TermineService", TermineService);
         }
     }
 });

@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.DispatcherServlet;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
@@ -22,13 +23,16 @@ public class GlobalConfig {
 
     private static final Logger LOG = Logger.getLogger(GlobalConfig.class.getName());
     
+   
     @ExceptionHandler(Exception.class)
-    public String handleError(Exception e){
-        LOG.severe(e.getMessage());
-        return "error";
-    }
-    
-         
+    public ModelAndView handleAllException(Exception ex) {
+                LOG.severe(ex.getMessage());
+		ModelAndView model = new ModelAndView("error");
+		model.addObject("errMsg", ex.getMessage());
+
+		return model;
+
+	}  
    
     
 }

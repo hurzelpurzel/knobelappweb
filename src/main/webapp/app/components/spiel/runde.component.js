@@ -24,28 +24,37 @@ System.register(["angular2/core", "../../model/runde.model", "../blocks/incbutto
                 incbutton_component_1 = incbutton_component_1_1;
             }],
         execute: function() {
-            RundeComponent = (function () {
-                function RundeComponent() {
+            let RundeComponent = class RundeComponent {
+                constructor() {
                 }
-                RundeComponent.prototype.getValue = function (name) {
+                getValue(name) {
                     return this.runde[name];
-                };
-                RundeComponent.prototype.onChanged = function (name, value) {
+                }
+                onChanged(name, value) {
                     this.runde[name] = value;
-                };
-                __decorate([
-                    core_1.Input(), 
-                    __metadata('design:type', runde_model_1.Runde)
-                ], RundeComponent.prototype, "runde", void 0);
-                RundeComponent = __decorate([
-                    core_1.Component({
-                        selector: "runde-component",
-                        directives: [incbutton_component_1.IncButtonComponent],
-                        template: "  \n        <div class=\"row\">\n            <div class=\"col-md-2\">{{runde.knobler}}</div>\n            <div class=\"col-md-2\"><incbutton-component [counter]=\"getValue('runden')\" (changed)=\"onChanged('runden',$event)\" ></incbutton-component></div>\n            <div class=\"col-md-2\"><incbutton-component [counter]=\"getValue('haelften')\" (changed)=\"onChanged('haelften',$event)\" ></incbutton-component></div>\n            <div class=\"col-md-2\"><incbutton-component [counter]=\"getValue('outs')\" (changed)=\"onChanged('outs',$event)\" ></incbutton-component></div>\n            <div class=\"col-md-2\"><incbutton-component [counter]=\"getValue('dreiharte')\" (changed)=\"onChanged('dreiharte',$event)\" ></incbutton-component></div>\n            <div class=\"col-md-2\"><incbutton-component [counter]=\"getValue('strafen')\" (changed)=\"onChanged('strafen',$event)\" ></incbutton-component></div>\n        </div >\n      \n     " }), 
-                    __metadata('design:paramtypes', [])
-                ], RundeComponent);
-                return RundeComponent;
-            }());
+                }
+            };
+            __decorate([
+                core_1.Input(), 
+                __metadata('design:type', runde_model_1.Runde)
+            ], RundeComponent.prototype, "runde", void 0);
+            RundeComponent = __decorate([
+                core_1.Component({
+                    selector: "runde-component",
+                    directives: [incbutton_component_1.IncButtonComponent],
+                    template: `  
+        <div class="row">
+            <div class="col-md-2">{{runde.knobler}}</div>
+            <div class="col-md-2"><incbutton-component [counter]="getValue('runden')" (changed)="onChanged('runden',$event)" ></incbutton-component></div>
+            <div class="col-md-2"><incbutton-component [counter]="getValue('haelften')" (changed)="onChanged('haelften',$event)" ></incbutton-component></div>
+            <div class="col-md-2"><incbutton-component [counter]="getValue('outs')" (changed)="onChanged('outs',$event)" ></incbutton-component></div>
+            <div class="col-md-2"><incbutton-component [counter]="getValue('dreiharte')" (changed)="onChanged('dreiharte',$event)" ></incbutton-component></div>
+            <div class="col-md-2"><incbutton-component [counter]="getValue('strafen')" (changed)="onChanged('strafen',$event)" ></incbutton-component></div>
+        </div >
+      
+     ` }), 
+                __metadata('design:paramtypes', [])
+            ], RundeComponent);
             exports_1("RundeComponent", RundeComponent);
         }
     }

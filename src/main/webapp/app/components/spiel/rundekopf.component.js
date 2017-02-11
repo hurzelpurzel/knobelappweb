@@ -18,22 +18,31 @@ System.register(["angular2/core"], function(exports_1, context_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            RundeKopfComponent = (function () {
-                function RundeKopfComponent() {
-                }
-                __decorate([
-                    core_1.Input(), 
-                    __metadata('design:type', Number)
-                ], RundeKopfComponent.prototype, "rundenzaehler", void 0);
-                RundeKopfComponent = __decorate([
-                    core_1.Component({
-                        selector: "rundekopf-component",
-                        styles: ['.headline{ font-weight: bolder; margin: 1em; align: center}'],
-                        template: "  \n        <button class=\"btn-primary\">Runde: {{rundenzaehler}} </button>\n        \n        <div class=\"row headline\">\n            <div class=\"col-md-2\">Knobler</div>\n            <div class=\"col-md-2\">Runden</div>\n            <div class=\"col-md-2\">H&auml;lften</div>\n            <div class=\"col-md-2\">Outs</div>\n            <div class=\"col-md-2\">Dreiharte</div>\n            <div class=\"col-md-2\">Strafen</div>\n        </div >\n      \n     " }), 
-                    __metadata('design:paramtypes', [])
-                ], RundeKopfComponent);
-                return RundeKopfComponent;
-            }());
+            let RundeKopfComponent = class RundeKopfComponent {
+            };
+            __decorate([
+                core_1.Input(), 
+                __metadata('design:type', Number)
+            ], RundeKopfComponent.prototype, "rundenzaehler", void 0);
+            RundeKopfComponent = __decorate([
+                core_1.Component({
+                    selector: "rundekopf-component",
+                    styles: ['.headline{ font-weight: bolder; margin: 1em; align: center}'],
+                    template: `  
+        <button class="btn-primary">Runde: {{rundenzaehler}} </button>
+        
+        <div class="row headline">
+            <div class="col-md-2">Knobler</div>
+            <div class="col-md-2">Runden</div>
+            <div class="col-md-2">H&auml;lften</div>
+            <div class="col-md-2">Outs</div>
+            <div class="col-md-2">Dreiharte</div>
+            <div class="col-md-2">Strafen</div>
+        </div >
+      
+     ` }), 
+                __metadata('design:paramtypes', [])
+            ], RundeKopfComponent);
             exports_1("RundeKopfComponent", RundeKopfComponent);
         }
     }
