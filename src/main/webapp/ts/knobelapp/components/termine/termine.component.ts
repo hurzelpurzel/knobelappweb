@@ -17,10 +17,10 @@ import {Observable} from 'rxjs/Observable';
           <div class="col-md-3">Anlass</div>
         <div>
         <div class="row" *ngFor="#item of termine  | async" >  
-        <termin-component [item]="item" (delete)=onDelete($event) ><termin.component>
+        <termin-component [item]="item" (delete)=onDelete($event) ></termin.component>
         </div>
         <div class="row">  
-        <termin-component [item]="edit" []editable="true" (reset)=reset() ><termin.component>
+        <termin-component [item]="edit" []editable="true" (reset)=reset() ></termin.component>
         </div>
     </div>
     

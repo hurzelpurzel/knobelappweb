@@ -5,9 +5,10 @@ import { TermineComponent } from './components/termine/termine.component'
 import { TerminComponent} from './components/termine/termin.component'
 
 @NgModule({
-    imports: [ HttpModule,TermineService],
+    imports: [ HttpModule],
     declarations: [TermineComponent, TerminComponent],
-    bootstrap : [TermineComponent]
+    bootstrap : [TermineComponent],
+    providers : [TermineService]
     
 })
 export class TermineModul{

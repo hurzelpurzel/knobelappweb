@@ -31,9 +31,10 @@ System.register(["@angular/core", "@angular/http", "./services/termine.service",
             };
             TermineModul = __decorate([
                 core_1.NgModule({
-                    imports: [http_1.HttpModule, termine_service_1.TermineService],
+                    imports: [http_1.HttpModule],
                     declarations: [termine_component_1.TermineComponent, termin_component_1.TerminComponent],
-                    bootstrap: [termine_component_1.TermineComponent]
+                    bootstrap: [termine_component_1.TermineComponent],
+                    providers: [termine_service_1.TermineService]
                 })
             ], TermineModul);
             exports_1("TermineModul", TermineModul);
