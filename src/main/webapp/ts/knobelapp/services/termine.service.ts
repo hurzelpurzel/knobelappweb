@@ -1,13 +1,13 @@
 import {Injectable} from "@angular/core";
 import { Http} from '@angular/http';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs/Rx';
 import { Termin } from "../model/termin.model";
 
 
 @Injectable()
 export class TermineService{
     
-    private _baseUri ="/knobelapp/rest";
+    private _baseUri ="/knobelapp/rest/termine";
    
     
     constructor(private _http: Http){
@@ -20,8 +20,8 @@ export class TermineService{
     }
     
     getTermine(): Observable<Termin[]>{
-        return Observable.create();
-    //    return this._http.get(this._baseUri+'/termine');
+       
+        return this._http.get(this._baseUri).map(response => response.json());
     }
     
 }

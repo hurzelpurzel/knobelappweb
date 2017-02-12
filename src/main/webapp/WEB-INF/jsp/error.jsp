@@ -1,6 +1,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
     <head>
+        <base href="/knobelapp/">
         <title>Fehler</title>
         <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 
