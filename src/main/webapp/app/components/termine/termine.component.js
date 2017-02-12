@@ -1,6 +1,5 @@
-System.register(["@angular/core", "../../model/termin.model", "../../services/termine.service"], function(exports_1, context_1) {
+System.register(["@angular/core", "../../model/termin.model", "../../services/termine.service", "rxjs/add/operator/map"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,10 +9,10 @@ System.register(["@angular/core", "../../model/termin.model", "../../services/te
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, termin_model_1, termine_service_1;
-    var TermineComponent;
+    var __moduleName = context_1 && context_1.id;
+    var core_1, termin_model_1, termine_service_1, TermineComponent;
     return {
-        setters:[
+        setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
             },
@@ -22,8 +21,11 @@ System.register(["@angular/core", "../../model/termin.model", "../../services/te
             },
             function (termine_service_1_1) {
                 termine_service_1 = termine_service_1_1;
-            }],
-        execute: function() {
+            },
+            function (_1) {
+            }
+        ],
+        execute: function () {
             TermineComponent = class TermineComponent {
                 constructor(_service) {
                     this._service = _service;
@@ -56,20 +58,21 @@ System.register(["@angular/core", "../../model/termin.model", "../../services/te
           <div class="col-md-3">Ort</div>
           <div class="col-md-3">Anlass</div>
         <div>
-        <div class="row" *ngFor="#item of termine  | async" >  
-        <termin-component [item]="item" (delete)=onDelete($event) ></termin.component>
+        <div class="row" *ngFor="let item of termine  | async" >  
+        <termin-component [item]="item" (delete)=onDelete($event) ></termin-component>
         </div>
         <div class="row">  
-        <termin-component [item]="edit" []editable="true" (reset)=reset() ></termin.component>
+        <termin-component [item]="edit" [editable]="true" (reset)=reset() ></termin-component>
         </div>
     </div>
     
     
-    ` }), 
-                __metadata('design:paramtypes', [termine_service_1.TermineService])
+    `
+                }),
+                __metadata("design:paramtypes", [termine_service_1.TermineService])
             ], TermineComponent);
             exports_1("TermineComponent", TermineComponent);
         }
-    }
+    };
 });
 //# sourceMappingURL=termine.component.js.map

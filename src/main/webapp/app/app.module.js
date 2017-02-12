@@ -1,4 +1,4 @@
-System.register(["./components/app.component", "@angular/core", "@angular/platform-browser", "@angular/platform-browser-dynamic", "./components/app.routing", "./termine.module", "./spiel.module", "@angular/common"], function (exports_1, context_1) {
+System.register(["./components/app.component", "@angular/core", "@angular/platform-browser", "@angular/platform-browser-dynamic", "./components/app.routing", "./termine.module", "./spiel.module", "@angular/common", "@angular/forms"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7,7 +7,7 @@ System.register(["./components/app.component", "@angular/core", "@angular/platfo
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
     var __moduleName = context_1 && context_1.id;
-    var app_component_1, core_1, platform_browser_1, platform_browser_dynamic_1, app_routing_1, termine_module_1, spiel_module_1, common_1, AppModule;
+    var app_component_1, core_1, platform_browser_1, platform_browser_dynamic_1, app_routing_1, termine_module_1, spiel_module_1, common_1, forms_1, AppModule;
     return {
         setters: [
             function (app_component_1_1) {
@@ -33,6 +33,9 @@ System.register(["./components/app.component", "@angular/core", "@angular/platfo
             },
             function (common_1_1) {
                 common_1 = common_1_1;
+            },
+            function (forms_1_1) {
+                forms_1 = forms_1_1;
             }
         ],
         execute: function () {
@@ -40,10 +43,10 @@ System.register(["./components/app.component", "@angular/core", "@angular/platfo
             };
             AppModule = __decorate([
                 core_1.NgModule({
-                    imports: [platform_browser_1.BrowserModule, app_routing_1.routing, termine_module_1.TermineModul, spiel_module_1.SpielModul],
+                    imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, app_routing_1.routing, termine_module_1.TermineModul, spiel_module_1.SpielModul],
                     declarations: [app_component_1.AppComponent],
                     bootstrap: [app_component_1.AppComponent],
-                    providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }]
+                    providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/knobelapp' }]
                 })
             ], AppModule);
             exports_1("AppModule", AppModule);

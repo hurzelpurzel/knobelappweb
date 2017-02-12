@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/http", "./services/termine.service", "./components/termine/termine.component", "./components/termine/termin.component"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/http", "@angular/common", "./services/termine.service", "./components/termine/termine.component", "./components/termine/termin.component", "@angular/forms"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7,7 +7,7 @@ System.register(["@angular/core", "@angular/http", "./services/termine.service",
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, http_1, termine_service_1, termine_component_1, termin_component_1, TermineModul;
+    var core_1, http_1, common_1, termine_service_1, termine_component_1, termin_component_1, forms_1, TermineModul;
     return {
         setters: [
             function (core_1_1) {
@@ -15,6 +15,9 @@ System.register(["@angular/core", "@angular/http", "./services/termine.service",
             },
             function (http_1_1) {
                 http_1 = http_1_1;
+            },
+            function (common_1_1) {
+                common_1 = common_1_1;
             },
             function (termine_service_1_1) {
                 termine_service_1 = termine_service_1_1;
@@ -24,6 +27,9 @@ System.register(["@angular/core", "@angular/http", "./services/termine.service",
             },
             function (termin_component_1_1) {
                 termin_component_1 = termin_component_1_1;
+            },
+            function (forms_1_1) {
+                forms_1 = forms_1_1;
             }
         ],
         execute: function () {
@@ -31,9 +37,9 @@ System.register(["@angular/core", "@angular/http", "./services/termine.service",
             };
             TermineModul = __decorate([
                 core_1.NgModule({
-                    imports: [http_1.HttpModule],
+                    imports: [http_1.HttpModule, common_1.CommonModule, forms_1.FormsModule],
                     declarations: [termine_component_1.TermineComponent, termin_component_1.TerminComponent],
-                    bootstrap: [termine_component_1.TermineComponent],
+                    exports: [termine_component_1.TermineComponent],
                     providers: [termine_service_1.TermineService]
                 })
             ], TermineModul);

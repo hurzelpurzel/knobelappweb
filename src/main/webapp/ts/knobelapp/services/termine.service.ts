@@ -1,8 +1,8 @@
 import {Injectable} from "@angular/core";
 import { Http} from '@angular/http';
-import {Observable} from 'rxjs/Rx';
 import { Termin } from "../model/termin.model";
-
+import 'rxjs/add/operator/map';
+import { Observable} from "rxjs/Observable";
 
 @Injectable()
 export class TermineService{

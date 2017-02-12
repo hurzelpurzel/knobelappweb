@@ -16,8 +16,12 @@ System.register(["./termine/termine.component", "./spiel/spiel.component", "@ang
         ],
         execute: function () {
             routes = [
-                { path: "/termine", component: termine_component_1.TermineComponent, },
-                { path: "/spiel", component: spiel_component_1.SpielComponent }
+                { path: '',
+                    redirectTo: '/termine',
+                    pathMatch: 'full'
+                },
+                { path: "termine", component: termine_component_1.TermineComponent },
+                { path: "spiel", component: spiel_component_1.SpielComponent }
             ];
             exports_1("routing", routing = router_1.RouterModule.forRoot(routes));
         }

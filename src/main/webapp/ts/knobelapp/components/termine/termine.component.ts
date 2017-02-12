@@ -1,12 +1,13 @@
 import { Component } from "@angular/core";
 import { Termin } from "../../model/termin.model";
 import {TermineService} from "../../services/termine.service";
-
+import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Observable';
 
 @Component({
     selector: "termine-component",
-   providers: [TermineService],
+    
+    providers: [TermineService],
    
     template: `<h1>Termine</h1>
     <div class="container">
@@ -16,11 +17,11 @@ import {Observable} from 'rxjs/Observable';
           <div class="col-md-3">Ort</div>
           <div class="col-md-3">Anlass</div>
         <div>
-        <div class="row" *ngFor="#item of termine  | async" >  
-        <termin-component [item]="item" (delete)=onDelete($event) ></termin.component>
+        <div class="row" *ngFor="let item of termine  | async" >  
+        <termin-component [item]="item" (delete)=onDelete($event) ></termin-component>
         </div>
         <div class="row">  
-        <termin-component [item]="edit" []editable="true" (reset)=reset() ></termin.component>
+        <termin-component [item]="edit" [editable]="true" (reset)=reset() ></termin-component>
         </div>
     </div>
     

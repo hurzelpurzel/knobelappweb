@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/http", "./components/blocks/incbutton.component", "./components/spiel/spiel.component", "./components/spiel/runde.component", "./components/spiel/rundekopf.component"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/http", "@angular/common", "./components/blocks/incbutton.component", "./components/spiel/spiel.component", "./components/spiel/runde.component", "./components/spiel/rundekopf.component", "@angular/forms"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7,7 +7,7 @@ System.register(["@angular/core", "@angular/http", "./components/blocks/incbutto
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, http_1, incbutton_component_1, spiel_component_1, runde_component_1, rundekopf_component_1, SpielModul;
+    var core_1, http_1, common_1, incbutton_component_1, spiel_component_1, runde_component_1, rundekopf_component_1, forms_1, SpielModul;
     return {
         setters: [
             function (core_1_1) {
@@ -15,6 +15,9 @@ System.register(["@angular/core", "@angular/http", "./components/blocks/incbutto
             },
             function (http_1_1) {
                 http_1 = http_1_1;
+            },
+            function (common_1_1) {
+                common_1 = common_1_1;
             },
             function (incbutton_component_1_1) {
                 incbutton_component_1 = incbutton_component_1_1;
@@ -27,6 +30,9 @@ System.register(["@angular/core", "@angular/http", "./components/blocks/incbutto
             },
             function (rundekopf_component_1_1) {
                 rundekopf_component_1 = rundekopf_component_1_1;
+            },
+            function (forms_1_1) {
+                forms_1 = forms_1_1;
             }
         ],
         execute: function () {
@@ -34,9 +40,9 @@ System.register(["@angular/core", "@angular/http", "./components/blocks/incbutto
             };
             SpielModul = __decorate([
                 core_1.NgModule({
-                    imports: [http_1.HttpModule],
+                    imports: [http_1.HttpModule, common_1.CommonModule, forms_1.FormsModule],
                     declarations: [incbutton_component_1.IncButtonComponent, spiel_component_1.SpielComponent, runde_component_1.RundeComponent, rundekopf_component_1.RundeKopfComponent],
-                    bootstrap: [spiel_component_1.SpielComponent]
+                    exports: [spiel_component_1.SpielComponent]
                 })
             ], SpielModul);
             exports_1("SpielModul", SpielModul);

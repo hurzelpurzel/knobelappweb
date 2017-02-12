@@ -15,7 +15,7 @@ import { KNOBLER } from "../../model/knobler.model";
    
     template: `
         <rundekopf-component [rundenzaehler]="spiel.zaehler"></rundekopf-component>
-        <div *ngFor="#cur of knobeler">
+        <div *ngFor="let cur of knobeler">
             <runde-component [runde]="spiel.aktuelleRunde.get(cur)" ></runde-component>
         </div>
          

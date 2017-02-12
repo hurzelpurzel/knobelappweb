@@ -13,8 +13,8 @@
     "dependencies": {
         "@angular/core": "^2.4.7",
         "@angular/common": "^2.4.7",
-         "@angular/forms": "^2.4.7",
-         "@angular/compiler": "^2.4.7",
+        "@angular/forms": "^2.4.7",
+        "@angular/compiler": "^2.4.7",
         "@angular/http": "*",
         "@angular/router": "*",
         "@angular/platform-server": "^2.4.7",

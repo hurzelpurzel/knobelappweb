@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-
+import { Router, ActivatedRoute} from "@angular/router";
 
 @Component({
     selector: "app-component",
@@ -12,9 +12,9 @@ import { Component } from "@angular/core";
     <div class="navbar-header">
       <a class="navbar-brand" href="#">KnobelApp</a>
     </div>
-    <ul class="nav navbar-nav">
-     <li><a [routerLink]="['Termine']" >Termine</a></li>
-     <li><a [routerLink]="['Spiel']" >Spiel</a></li>
+    <ul class="nav navbar-nav" routerLinkActive="active">
+     <li><a routerLink="/termine" >Termine</a></li>
+     <li><a routerLink="/spiel" >Spiel</a></li>
     </ul>
   </div>
      
@@ -31,5 +31,8 @@ import { Component } from "@angular/core";
 
 export class AppComponent {
 
+    constructor(private _route: ActivatedRoute, private _router: Router){
+        
+    }
 }
 
