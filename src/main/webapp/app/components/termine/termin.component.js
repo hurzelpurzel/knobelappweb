@@ -44,7 +44,9 @@ System.register(["@angular/core", "../../model/termin.model"], function (exports
                     selector: "termin-component",
                     template: `
         <div class="row" >  
-            <div class="col-md-3"><button class="btn btn-danger" type="button" (click)="doDelete()">L&ouml;schen</button></div>
+            <div class="col-md-3">
+            <button class="btn btn-danger" type="button" (click)="doDelete()">L&ouml;schen</button>
+            </div>
             <div class="col-md-3">{{item.termin}}</div>
             <div class="col-md-3">{{item.ort}}</div>
             <div class="col-md-3">{{item.anlass}}</div>

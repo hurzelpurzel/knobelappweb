@@ -20,7 +20,7 @@ import {Observable} from 'rxjs/Observable';
         <div class="row" *ngFor="let item of termine  | async" >  
         <termin-component [item]="item" (delete)=onDelete($event) ></termin-component>
         </div>
-     /div>
+     </div>
     
     
     `})
