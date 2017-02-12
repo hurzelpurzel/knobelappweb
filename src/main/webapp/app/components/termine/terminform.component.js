@@ -25,10 +25,14 @@ System.register(["@angular/core", "../../model/termin.model"], function (exports
                 constructor() {
                     /* Default values if input is not given*/
                     this.item = new termin_model_1.Termin();
-                    this.delete = new core_1.EventEmitter();
+                    this.create = new core_1.EventEmitter();
+                    this.reset = new core_1.EventEmitter();
                 }
-                doDelete() {
-                    this.delete.emit(this.item);
+                onReset() {
+                    this.reset.emit(this.item);
+                }
+                onSubmit() {
+                    this.create.emit(this.item);
                 }
             };
             __decorate([
@@ -38,18 +42,42 @@ System.register(["@angular/core", "../../model/termin.model"], function (exports
             __decorate([
                 core_1.Output(),
                 __metadata("design:type", core_1.EventEmitter)
-            ], TerminComponent.prototype, "delete", void 0);
+            ], TerminComponent.prototype, "create", void 0);
+            __decorate([
+                core_1.Output(),
+                __metadata("design:type", core_1.EventEmitter)
+            ], TerminComponent.prototype, "reset", void 0);
             TerminComponent = __decorate([
                 core_1.Component({
-                    selector: "termin-component",
+                    selector: "terminform-component",
                     template: `
-        <div class="row" >  
-            <div class="col-md-3"><button class="btn btn-danger" type="button" (click)="doDelete()">L&ouml;schen</button></div>
-            <div class="col-md-3">{{item.termin}}</div>
-            <div class="col-md-3">{{item.ort}}</div>
-            <div class="col-md-3">{{item.anlass}}</div>
-        </div>
         
+        <div class="row" >  
+        <form class="form-container form-horizontal" (submit)="onSubmit()">
+            <div class="form-group">
+                <label class="control-label col-sm-1">Termin</label>
+                <div class="col-sm-11">
+                <input type="date" [(ngModel)]="item.termin"/>
+            </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-1">Ort</label>
+                <div class="col-sm-11">
+                <input type="text" [(ngModel)]="item.ort"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-1">Anlass</label>
+                <div class="col-sm-11">
+                <input type="text" [(ngModel)]="item.anlass"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Anlegen</button>
+                <button class="btn btn-danger" type="button" (click)="onReset()">Neu</button>
+            </div>
+        </form>
+        </div>
     
     
     
@@ -61,4 +89,4 @@ System.register(["@angular/core", "../../model/termin.model"], function (exports
         }
     };
 });
-//# sourceMappingURL=termin.component.js.map
+//# sourceMappingURL=terminform.component.js.map

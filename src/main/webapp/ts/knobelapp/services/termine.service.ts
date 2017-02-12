@@ -7,7 +7,7 @@ import { Observable} from "rxjs/Observable";
 @Injectable()
 export class TermineService{
     
-    private _baseUri ="/knobelapp/rest/termine";
+    private _baseUri ="/knobelapp/rest/termine/";
    
     
     constructor(private _http: Http){

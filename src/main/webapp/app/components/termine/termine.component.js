@@ -26,6 +26,13 @@ System.register(["@angular/core", "../../model/termin.model", "../../services/te
             }
         ],
         execute: function () {
+            /**
+             *    <div class="row">
+                  
+                    <terminform-component [item]="edit" [editable]="true" (reset)=reset() ></terminform-component>
+                 
+                    </div>
+             */
             TermineComponent = class TermineComponent {
                 constructor(_service) {
                     this._service = _service;
@@ -61,10 +68,7 @@ System.register(["@angular/core", "../../model/termin.model", "../../services/te
         <div class="row" *ngFor="let item of termine  | async" >  
         <termin-component [item]="item" (delete)=onDelete($event) ></termin-component>
         </div>
-        <div class="row">  
-        <termin-component [item]="edit" [editable]="true" (reset)=reset() ></termin-component>
-        </div>
-    </div>
+     /div>
     
     
     `
