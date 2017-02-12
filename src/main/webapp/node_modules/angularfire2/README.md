@@ -16,7 +16,7 @@ Status: Beta
 #### Quick links
 [Contributing](https://github.com/angular/angularfire2/blob/master/CONTRIBUTING.md)
 
-[Plunker Template](http://plnkr.co/edit/4IbB5IvfkBYcj2iVAIM1?p=preview) - Requires to set your Firebase credentials in `app.module.ts`.
+[Plunker Template](http://plnkr.co/edit/8yY4tH?p=preview) - Requires to set your Firebase credentials in `app.module.ts`.
 
 ## Install
 
@@ -58,3 +58,4 @@ productive with AngularFire2.
 3. [Retreiving data as lists - FirebaseListObservable](docs/3-retrieving-data-as-lists.md)
 4. [Querying lists](docs/4-querying-lists.md)
 5. [User Authentication - FirebaseAuthentication](docs/5-user-authentication.md)
+6. [Using AngularFire2 with Ionic 2](docs/Auth-with-Ionic2.md)

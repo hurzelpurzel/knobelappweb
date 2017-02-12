@@ -1,9 +1,9 @@
-import { Component, Input} from "angular2/core";
+import { Component, Input} from "@angular/core";
 import { Runde } from "../../model/runde.model";
-import { IncButtonComponent } from "../blocks/incbutton.component"
+
 @Component({
     selector: "runde-component",
-    directives: [IncButtonComponent],
+   
     template: `  
         <div class="row">
             <div class="col-md-2">{{runde.knobler}}</div>

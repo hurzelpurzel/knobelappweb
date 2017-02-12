@@ -1,10 +1,9 @@
-import { Component } from "angular2/core";
-import { TermineComponent } from "./termine/termine.component";
-import { SpielComponent } from "./spiel/spiel.component";
-import { ROUTER_DIRECTIVES, RouteConfig } from 'angular2/router'
+import { Component } from "@angular/core";
+
+
 @Component({
     selector: "app-component",
-    directives: [ROUTER_DIRECTIVES],
+    
     template: `
    
     <header>
@@ -29,10 +28,6 @@ import { ROUTER_DIRECTIVES, RouteConfig } from 'angular2/router'
 
 })
 
-@RouteConfig([
-    { path: "/termine", name: "Termine", component: TermineComponent, useAsDefault: true },
-     { path: "/spiel", name: "Spiel", component: SpielComponent } 
-])
 
 export class AppComponent {
 

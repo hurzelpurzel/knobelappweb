@@ -1,6 +1,5 @@
-System.register(["angular2/core", "../../model/termin.model"], function(exports_1, context_1) {
+System.register(["@angular/core", "../../model/termin.model"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,18 +9,19 @@ System.register(["angular2/core", "../../model/termin.model"], function(exports_
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, termin_model_1;
-    var TerminComponent;
+    var __moduleName = context_1 && context_1.id;
+    var core_1, termin_model_1, TerminComponent;
     return {
-        setters:[
+        setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
             },
             function (termin_model_1_1) {
                 termin_model_1 = termin_model_1_1;
-            }],
-        execute: function() {
-            let TerminComponent = class TerminComponent {
+            }
+        ],
+        execute: function () {
+            TerminComponent = class TerminComponent {
                 constructor() {
                     /* Default values if input is not given*/
                     this.item = new termin_model_1.Termin();
@@ -41,24 +41,24 @@ System.register(["angular2/core", "../../model/termin.model"], function(exports_
                 }
             };
             __decorate([
-                core_1.Input(), 
-                __metadata('design:type', termin_model_1.Termin)
+                core_1.Input(),
+                __metadata("design:type", termin_model_1.Termin)
             ], TerminComponent.prototype, "item", void 0);
             __decorate([
-                core_1.Input(), 
-                __metadata('design:type', Boolean)
+                core_1.Input(),
+                __metadata("design:type", Boolean)
             ], TerminComponent.prototype, "editable", void 0);
             __decorate([
-                core_1.Output(), 
-                __metadata('design:type', core_1.EventEmitter)
+                core_1.Output(),
+                __metadata("design:type", core_1.EventEmitter)
             ], TerminComponent.prototype, "delete", void 0);
             __decorate([
-                core_1.Output(), 
-                __metadata('design:type', core_1.EventEmitter)
+                core_1.Output(),
+                __metadata("design:type", core_1.EventEmitter)
             ], TerminComponent.prototype, "create", void 0);
             __decorate([
-                core_1.Output(), 
-                __metadata('design:type', core_1.EventEmitter)
+                core_1.Output(),
+                __metadata("design:type", core_1.EventEmitter)
             ], TerminComponent.prototype, "reset", void 0);
             TerminComponent = __decorate([
                 core_1.Component({
@@ -91,11 +91,12 @@ System.register(["angular2/core", "../../model/termin.model"], function(exports_
     </div>
     
     
-    ` }), 
-                __metadata('design:paramtypes', [])
+    `
+                }),
+                __metadata("design:paramtypes", [])
             ], TerminComponent);
             exports_1("TerminComponent", TerminComponent);
         }
-    }
+    };
 });
 //# sourceMappingURL=termin.component.js.map

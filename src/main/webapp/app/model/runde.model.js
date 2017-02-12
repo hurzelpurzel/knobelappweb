@@ -1,16 +1,16 @@
-System.register([], function(exports_1, context_1) {
+System.register([], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var Runde;
     return {
-        setters:[],
-        execute: function() {
+        setters: [],
+        execute: function () {
             /*
              * To change this license header, choose License Headers in Project Properties.
              * To change this template file, choose Tools | Templates
              * and open the template in the editor.
              */
-            class Runde {
+            Runde = class Runde {
                 constructor(_knobler, _zaehler) {
                     this._knobler = _knobler;
                     this._zaehler = _zaehler;
@@ -32,9 +32,9 @@ System.register([], function(exports_1, context_1) {
                     this.haelften = this.haelften + _other.haelften;
                     this.runden = this.runden + _other.runden;
                 }
-            }
+            };
             exports_1("Runde", Runde);
         }
-    }
+    };
 });
 //# sourceMappingURL=runde.model.js.map

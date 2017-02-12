@@ -1,6 +1,5 @@
-System.register(["angular2/core"], function(exports_1, context_1) {
+System.register(["@angular/core"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,15 +9,16 @@ System.register(["angular2/core"], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
-    var IncButtonComponent;
+    var __moduleName = context_1 && context_1.id;
+    var core_1, IncButtonComponent;
     return {
-        setters:[
+        setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
-            }],
-        execute: function() {
-            let IncButtonComponent = class IncButtonComponent {
+            }
+        ],
+        execute: function () {
+            IncButtonComponent = class IncButtonComponent {
                 constructor() {
                     this.changed = new core_1.EventEmitter();
                     this.counter = 0;
@@ -35,12 +35,12 @@ System.register(["angular2/core"], function(exports_1, context_1) {
                 }
             };
             __decorate([
-                core_1.Input(), 
-                __metadata('design:type', Number)
+                core_1.Input(),
+                __metadata("design:type", Number)
             ], IncButtonComponent.prototype, "counter", void 0);
             __decorate([
-                core_1.Output(), 
-                __metadata('design:type', core_1.EventEmitter)
+                core_1.Output(),
+                __metadata("design:type", core_1.EventEmitter)
             ], IncButtonComponent.prototype, "changed", void 0);
             IncButtonComponent = __decorate([
                 core_1.Component({
@@ -48,11 +48,12 @@ System.register(["angular2/core"], function(exports_1, context_1) {
                     template: `<span><button class="btn" (click)="inc()">+</button>
     <span class="counter">{{counter}}</span>
     <button class="btn" (click)="dec()">-</button> </span>`,
-                    styles: ['.counter { font-weight: bold;  margin: 1em;}'] }), 
-                __metadata('design:paramtypes', [])
+                    styles: ['.counter { font-weight: bold;  margin: 1em;}']
+                }),
+                __metadata("design:paramtypes", [])
             ], IncButtonComponent);
             exports_1("IncButtonComponent", IncButtonComponent);
         }
-    }
+    };
 });
 //# sourceMappingURL=incbutton.component.js.map

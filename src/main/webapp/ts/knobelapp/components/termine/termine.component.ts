@@ -1,12 +1,13 @@
-import { Component } from "angular2/core";
+import { Component } from "@angular/core";
 import { Termin } from "../../model/termin.model";
 import {TermineService} from "../../services/termine.service";
-import {TerminComponent} from "./termin.component"
+
+import {Observable} from 'rxjs/Observable';
 
 @Component({
     selector: "termine-component",
+   providers: [TermineService],
    
-    directives: [TerminComponent],
     template: `<h1>Termine</h1>
     <div class="container">
        <div class="row">
@@ -15,7 +16,7 @@ import {TerminComponent} from "./termin.component"
           <div class="col-md-3">Ort</div>
           <div class="col-md-3">Anlass</div>
         <div>
-        <div class="row" *ngFor="#item of termine" >  
+        <div class="row" *ngFor="#item of termine  | async" >  
         <termin-component [item]="item" (delete)=onDelete($event) ><termin.component>
         </div>
         <div class="row">  
@@ -27,11 +28,11 @@ import {TerminComponent} from "./termin.component"
     `})
     
 export class TermineComponent{
-    public termine : Array<Termin>;
+    public termine : Observable<Array<Termin>>;
     public edit :Termin;
     
     constructor(private _service: TermineService){
-        this.termine= new Array<Termin>();
+        
         this.reset();
         
     }
@@ -41,7 +42,7 @@ export class TermineComponent{
     }
     
     onSubmit(){
-        this.termine.push(this.edit);
+        
         this.reset();
     }
     
@@ -50,9 +51,8 @@ export class TermineComponent{
     }
     
     load(){
-        this.termine= new Array<Termin>();
-        
-        //this._service.getTermine().do(termine => { this.termine = termine});
+             
+       this.termine= this._service.getTermine();
     }
     onDelete(event){
         

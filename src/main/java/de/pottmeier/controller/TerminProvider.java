@@ -23,41 +23,41 @@ import org.springframework.web.bind.annotation.RestController;
  * @author ludger
  */
 @RestController
-@RequestMapping("/rest")
+@RequestMapping("/rest/termine")
 public class TerminProvider {
     
     @Autowired
     private TerminRepository rep;
 
-    @RequestMapping(path="termin",method= RequestMethod.POST)
+    @RequestMapping(path="/",method= RequestMethod.POST)
     public Long  create(@RequestParam() TerminDto termin) {
         return rep.create(termin).getId();
         
     }
     
-    @RequestMapping(path="termin/{id}",method= RequestMethod.DELETE)
+    @RequestMapping(path="/{id}",method= RequestMethod.DELETE)
     public void  delete(@PathVariable(value="id") Long id) {
        rep.delete(id);
         
     }
     
-    @RequestMapping(path="termin/{id}",method= RequestMethod.GET)
+    @RequestMapping(path="/{id}",method= RequestMethod.GET)
     public TerminDto  getTermin(@PathVariable(value="id") Long id) {
        return rep.get(id);
         
     }
     
-    @RequestMapping(path = "termin/test",method= RequestMethod.GET)
+    @RequestMapping(path = "/new",method= RequestMethod.GET)
     public TerminDto createNow() {
         TerminDto now = new TerminDto ();
         now.setTermin(new Date());
-        now.setAnlass("test");
-        now.setOrt("hier");
+        now.setAnlass("tbs");
+        now.setOrt("tbd");
         return rep.create(now);
        
     }
     
-    @RequestMapping(path = "termine",method= RequestMethod.GET)
+    @RequestMapping(path = "/",method= RequestMethod.GET)
     public Set<TerminDto> getTermine(){
         
         return rep.findAll();

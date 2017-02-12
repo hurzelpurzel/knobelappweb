@@ -1,6 +1,5 @@
-System.register(["angular2/core", "../../model/termin.model", "../../services/termine.service", "./termin.component"], function(exports_1, context_1) {
+System.register(["@angular/core", "../../model/termin.model", "../../services/termine.service"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,10 +9,10 @@ System.register(["angular2/core", "../../model/termin.model", "../../services/te
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, termin_model_1, termine_service_1, termin_component_1;
-    var TermineComponent;
+    var __moduleName = context_1 && context_1.id;
+    var core_1, termin_model_1, termine_service_1, TermineComponent;
     return {
-        setters:[
+        setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
             },
@@ -22,30 +21,25 @@ System.register(["angular2/core", "../../model/termin.model", "../../services/te
             },
             function (termine_service_1_1) {
                 termine_service_1 = termine_service_1_1;
-            },
-            function (termin_component_1_1) {
-                termin_component_1 = termin_component_1_1;
-            }],
-        execute: function() {
-            let TermineComponent = class TermineComponent {
+            }
+        ],
+        execute: function () {
+            TermineComponent = class TermineComponent {
                 constructor(_service) {
                     this._service = _service;
-                    this.termine = new Array();
                     this.reset();
                 }
                 ngOnInit() {
                     this.load();
                 }
                 onSubmit() {
-                    this.termine.push(this.edit);
                     this.reset();
                 }
                 reset() {
                     this.edit = new termin_model_1.Termin();
                 }
                 load() {
-                    this.termine = new Array();
-                    //this._service.getTermine().do(termine => { this.termine = termine});
+                    this.termine = this._service.getTermine();
                 }
                 onDelete(event) {
                 }
@@ -53,7 +47,7 @@ System.register(["angular2/core", "../../model/termin.model", "../../services/te
             TermineComponent = __decorate([
                 core_1.Component({
                     selector: "termine-component",
-                    directives: [termin_component_1.TerminComponent],
+                    providers: [termine_service_1.TermineService],
                     template: `<h1>Termine</h1>
     <div class="container">
        <div class="row">
@@ -62,7 +56,7 @@ System.register(["angular2/core", "../../model/termin.model", "../../services/te
           <div class="col-md-3">Ort</div>
           <div class="col-md-3">Anlass</div>
         <div>
-        <div class="row" *ngFor="#item of termine" >  
+        <div class="row" *ngFor="#item of termine  | async" >  
         <termin-component [item]="item" (delete)=onDelete($event) ><termin.component>
         </div>
         <div class="row">  
@@ -71,11 +65,12 @@ System.register(["angular2/core", "../../model/termin.model", "../../services/te
     </div>
     
     
-    ` }), 
-                __metadata('design:paramtypes', [termine_service_1.TermineService])
+    `
+                }),
+                __metadata("design:paramtypes", [termine_service_1.TermineService])
             ], TermineComponent);
             exports_1("TermineComponent", TermineComponent);
         }
-    }
+    };
 });
 //# sourceMappingURL=termine.component.js.map

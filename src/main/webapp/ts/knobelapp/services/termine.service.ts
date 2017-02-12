@@ -1,5 +1,5 @@
-import {Injectable} from "angular2/core";
-import { Http} from 'angular2/http';
+import {Injectable} from "@angular/core";
+import { Http} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import { Termin } from "../model/termin.model";
 
@@ -20,7 +20,8 @@ export class TermineService{
     }
     
     getTermine(): Observable<Termin[]>{
-        return this._http.get(this._baseUri+'/termine').map(response => response.json());
+        return Observable.create();
+    //    return this._http.get(this._baseUri+'/termine');
     }
     
 }
