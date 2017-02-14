@@ -9,7 +9,7 @@ import { Termin } from "../../model/termin.model";
             <div class="col-md-3">
             <button class="btn btn-danger" type="button" (click)="doDelete()">L&ouml;schen</button>
             </div>
-            <div class="col-md-3">{{item.termin}}</div>
+            <div class="col-md-3">{{item.termin | date:dateFormat }}</div>
             <div class="col-md-3">{{item.ort}}</div>
             <div class="col-md-3">{{item.anlass}}</div>
         </div>

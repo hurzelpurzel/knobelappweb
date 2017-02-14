@@ -1,6 +1,5 @@
-System.register(["@angular/core", "../../model/termin.model", "../../services/termine.service", 'rxjs/add/operator/map'], function(exports_1, context_1) {
+System.register(["@angular/core", "../../model/termin.model", "../../services/termine.service", "rxjs/add/operator/map"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,10 +9,10 @@ System.register(["@angular/core", "../../model/termin.model", "../../services/te
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, termin_model_1, termine_service_1;
-    var TermineComponent;
+    var __moduleName = context_1 && context_1.id;
+    var core_1, termin_model_1, termine_service_1, TermineComponent;
     return {
-        setters:[
+        setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
             },
@@ -23,8 +22,17 @@ System.register(["@angular/core", "../../model/termin.model", "../../services/te
             function (termine_service_1_1) {
                 termine_service_1 = termine_service_1_1;
             },
-            function (_1) {}],
-        execute: function() {
+            function (_1) {
+            }
+        ],
+        execute: function () {
+            /**
+             *    <div class="row">
+                  
+                    <terminform-component [item]="edit" [editable]="true" (reset)=reset() ></terminform-component>
+                 
+                    </div>
+             */
             TermineComponent = class TermineComponent {
                 constructor(_service) {
                     this._service = _service;
@@ -42,7 +50,8 @@ System.register(["@angular/core", "../../model/termin.model", "../../services/te
                 load() {
                     this.termine = this._service.getTermine();
                 }
-                onDelete(event) {
+                onDelete(termin) {
+                    this.termine = this._service.delete(termin.id);
                 }
             };
             TermineComponent = __decorate([
@@ -63,11 +72,12 @@ System.register(["@angular/core", "../../model/termin.model", "../../services/te
      </div>
     
     
-    ` }), 
-                __metadata('design:paramtypes', [termine_service_1.TermineService])
+    `
+                }),
+                __metadata("design:paramtypes", [termine_service_1.TermineService])
             ], TermineComponent);
             exports_1("TermineComponent", TermineComponent);
         }
-    }
+    };
 });
 //# sourceMappingURL=termine.component.js.map

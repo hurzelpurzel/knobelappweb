@@ -1,0 +1,1 @@
+{"version":3,"file":"SimpleLogger.js","sourceRoot":"","sources":["../../ts/knobelapp/utils/SimpleLogger.ts"],"names":[],"mappings":"AAAA;;;;GAIG;;;;;;;8BAJH;;;;eAIG;YAEH,eAAA;gBACI,MAAM,CAAC,GAAG,CAAC,OAAe;oBACtB,EAAE,CAAC,CAAC,OAAO,MAAM,CAAC,OAAO,KAAK,WAAW,CAAC,CAAC,CAAC;wBACxC,MAAM,CAAC,OAAO,CAAC,GAAG,CAAC,OAAO,CAAC,CAAC;oBAChC,CAAC;gBACL,CAAC;aAGJ,CAAA;;QACD,CAAC"}

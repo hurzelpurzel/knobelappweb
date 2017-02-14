@@ -58,8 +58,8 @@ export class TermineComponent{
              
        this.termine= this._service.getTermine();
     }
-    onDelete(event){
-        
+    onDelete(termin : Termin){
+        this.termine = this._service.delete(termin.id);
     }
 }
 

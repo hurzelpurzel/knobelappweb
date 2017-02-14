@@ -31,8 +31,8 @@ public class GlobalConfig {
 		model.addObject("errMsg", ex.getMessage());
 
 		return model;
-
-	}  
+    }  
    
+    
     
 }

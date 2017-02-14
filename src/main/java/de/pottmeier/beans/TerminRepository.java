@@ -34,7 +34,7 @@ public class TerminRepository {
         BeanUtils.copyProperties(in, po);
 
         em.persist(po);
-
+        em.flush();
         return wrap(po);
     }
 
@@ -47,7 +47,7 @@ public class TerminRepository {
             BeanUtils.copyProperties(in, po);
 
             em.merge(po);
-
+            em.flush();
             return true;
         }
         return false;
@@ -68,15 +68,16 @@ public class TerminRepository {
     }
 
     @Transactional
-    public boolean delete(Long id) {
+    public TerminDto delete(Long id) {
         TerminPO po = em.find(TerminPO.class, id);
         if (po != null) {
-
             em.remove(po);
-
-            return true;
+            em.flush();
+            TerminDto dto = wrap(po);
+            dto.setId(null);
+            return dto;
         }
-        return false;
+        return null;
     }
 
     private static TerminDto wrap(TerminPO po) {
