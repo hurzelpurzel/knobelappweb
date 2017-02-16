@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/http", "rxjs/add/operator/map", "rxjs/add/operator/catch", "rxjs/Observable", "../utils/SimpleLogger"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/http", "rxjs/add/operator/map", "rxjs/add/operator/catch", "../utils/SimpleLogger"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,7 +10,7 @@ System.register(["@angular/core", "@angular/http", "rxjs/add/operator/map", "rxj
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, http_1, Observable_1, SimpleLogger_1, TermineService;
+    var core_1, http_1, SimpleLogger_1, TermineService;
     return {
         setters: [
             function (core_1_1) {
@@ -22,9 +22,6 @@ System.register(["@angular/core", "@angular/http", "rxjs/add/operator/map", "rxj
             function (_1) {
             },
             function (_2) {
-            },
-            function (Observable_1_1) {
-                Observable_1 = Observable_1_1;
             },
             function (SimpleLogger_1_1) {
                 SimpleLogger_1 = SimpleLogger_1_1;
@@ -44,15 +41,10 @@ System.register(["@angular/core", "@angular/http", "rxjs/add/operator/map", "rxj
                 delete(id) {
                     let uri = this._baseUri + id;
                     SimpleLogger_1.SimpleLogger.log(uri);
-                    this._http.delete(uri).map(res => this.handleResult(res.json())).catch(this.handleError);
-                    return this.getTermine();
-                }
-                handleResult(res) {
-                    alert(res ? "success" : "failed");
-                }
-                handleError(error) {
-                    SimpleLogger_1.SimpleLogger.log(error);
-                    return Observable_1.Observable.throw(error);
+                    const headers = new http_1.Headers({
+                        'Content-Type': 'application/json'
+                    });
+                    return this._http.delete(uri, { headers: headers, body: "" }).map(response => response.json());
                 }
             };
             TermineService = __decorate([

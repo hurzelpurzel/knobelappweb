@@ -7,9 +7,7 @@ package de.pottmeier.beans;
 
 import de.pottmeier.model.TerminDto;
 import de.pottmeier.model.TerminPO;
-import java.util.HashSet;
 import java.util.Set;
-import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

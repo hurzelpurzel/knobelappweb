@@ -3,6 +3,7 @@ import { Termin } from "../../model/termin.model";
 import {TermineService} from "../../services/termine.service";
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Observable';
+import { SimpleLogger } from "../../utils/SimpleLogger";
 
 @Component({
     selector: "termine-component",
@@ -58,8 +59,13 @@ export class TermineComponent{
              
        this.termine= this._service.getTermine();
     }
+    
     onDelete(termin : Termin){
-        this.termine = this._service.delete(termin.id);
+        let res :Termin;
+        this._service.delete(termin.id).subscribe(
+            data => res = data,
+            error=>SimpleLogger.log(error),
+            ()=> this.load());
     }
 }
 

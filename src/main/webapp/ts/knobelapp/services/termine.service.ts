@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import { Http} from '@angular/http';
+import { Http, Headers} from '@angular/http';
 import { Termin } from "../model/termin.model";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -26,20 +26,21 @@ export class TermineService{
         return this._http.get(this._baseUri).map(response => response.json());
     }
     
-    delete(id :number): Observable<Termin[]>{
+    delete(id :number): Observable<Termin>{
         let uri :string =this._baseUri+id;
         SimpleLogger.log(uri);
-        this._http.delete(uri).map(res =>this.handleResult(res.json())).catch(this.handleError);
-        return this.getTermine();   
+        const headers = new Headers({
+        'Content-Type': 'application/json'
+        });
+
+        return this._http.delete(uri, { headers: headers, body: ""}).map(response => response.json());
     }
     
-    private handleResult(res : boolean){
-        alert(res ?"success":"failed");
-    }
     
+   /* 
     private handleError(error: any) {
         SimpleLogger.log(error);
     
-    return Observable.throw(error);
-    }
+        return Observable.throw(error);
+    }*/
 }

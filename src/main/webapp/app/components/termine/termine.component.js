@@ -1,4 +1,4 @@
-System.register(["@angular/core", "../../model/termin.model", "../../services/termine.service", "rxjs/add/operator/map"], function (exports_1, context_1) {
+System.register(["@angular/core", "../../model/termin.model", "../../services/termine.service", "rxjs/add/operator/map", "../../utils/SimpleLogger"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,7 +10,7 @@ System.register(["@angular/core", "../../model/termin.model", "../../services/te
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, termin_model_1, termine_service_1, TermineComponent;
+    var core_1, termin_model_1, termine_service_1, SimpleLogger_1, TermineComponent;
     return {
         setters: [
             function (core_1_1) {
@@ -23,6 +23,9 @@ System.register(["@angular/core", "../../model/termin.model", "../../services/te
                 termine_service_1 = termine_service_1_1;
             },
             function (_1) {
+            },
+            function (SimpleLogger_1_1) {
+                SimpleLogger_1 = SimpleLogger_1_1;
             }
         ],
         execute: function () {
@@ -51,7 +54,8 @@ System.register(["@angular/core", "../../model/termin.model", "../../services/te
                     this.termine = this._service.getTermine();
                 }
                 onDelete(termin) {
-                    this.termine = this._service.delete(termin.id);
+                    let res;
+                    this._service.delete(termin.id).subscribe(data => res = data, error => SimpleLogger_1.SimpleLogger.log(error), () => this.load());
                 }
             };
             TermineComponent = __decorate([

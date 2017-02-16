@@ -33,6 +33,7 @@ public class TerminProvider {
         
     }
     
+ 
     @RequestMapping(path="/{id}",method= RequestMethod.DELETE)
     public TerminDto  delete(@PathVariable(value="id") Long id) {
        return rep.delete(id);
